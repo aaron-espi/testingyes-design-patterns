@@ -7,10 +7,14 @@ public class MainPage {
 
     private WebDriver driver;
     private TopBar topBar;
+    private SearchWidget searchWidget;
+    private ProductGrid productGrid;
 
     public MainPage(final WebDriver driver) {
         this.driver = driver;
         this.topBar = PageFactory.initElements(driver, TopBar.class);
+        this.searchWidget = PageFactory.initElements(driver, SearchWidget.class);
+        this.productGrid = PageFactory.initElements(driver, ProductGrid.class);
     }
 
     public void goTo() {
@@ -19,6 +23,14 @@ public class MainPage {
 
     public TopBar getTopBar() {
         return topBar;
+    }
+
+    public SearchWidget getSearchWidget() {
+        return searchWidget;
+    }
+
+    public ProductGrid getProductGrid() {
+        return productGrid;
     }
 
 }
