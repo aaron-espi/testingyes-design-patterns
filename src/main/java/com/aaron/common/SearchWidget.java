@@ -1,10 +1,8 @@
-package com.aaron.main;
+package com.aaron.common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import com.aaron.common.AbstractComponent;
 
 public class SearchWidget extends AbstractComponent {
 
