@@ -41,6 +41,9 @@ public class RegistrationForm extends AbstractComponent {
     @FindBy(xpath = "//button[@data-link-action='save-customer']")
     private WebElement save;
 
+    @FindBy(css = "div.help-block ul li.alert.alert-danger")
+    private WebElement errorMessage;
+
     public RegistrationForm(final WebDriver driver) {
         super(driver);
     }
@@ -63,6 +66,7 @@ public class RegistrationForm extends AbstractComponent {
     }
 
     public void typeEmail(String email) {
+        this.email.clear();
         this.email.sendKeys(email);
     }
 
@@ -74,7 +78,7 @@ public class RegistrationForm extends AbstractComponent {
         this.birthday.sendKeys(birthdate);
     }
 
-    public void checkRecieveOffers() {
+    public void checkReceiveOffers() {
         this.receiveOffers.click();
     }
 
@@ -88,6 +92,10 @@ public class RegistrationForm extends AbstractComponent {
 
     public void saveCustomer() {
         this.save.click();
+    }
+
+    public String getErrorMessageText() {
+        return this.errorMessage.getText().trim();
     }
 
     @Override

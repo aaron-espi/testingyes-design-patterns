@@ -1,5 +1,7 @@
 package com.aaron.steps;
 
+import static com.aaron.constants.RegistrationConstants.ALREADY_USED_EMAIL_ERROR;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +12,11 @@ import com.aaron.registration.RegistrationPage;
 import com.aaron.utils.TestUser;
 import com.aaron.utils.TestUserFactory;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.But;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class RegistrationSteps {
 
@@ -20,7 +26,7 @@ public class RegistrationSteps {
     private RegistrationPage registrationPage;
     private TestUser user;
 
-    @Given("the user navigates to the registration page")
+    @Given("the user is on the registration page")
     public void navigateToRegistrationPage() {
         driver = DriverManager.getDriver();
         mainPage = new MainPage(driver);
@@ -63,5 +69,21 @@ public class RegistrationSteps {
     public void shouldSeeNameInTopBar() {
         Assert.assertTrue(mainPage.getProductGrid().isDisplayed());
         Assert.assertEquals(mainPage.getTopBar().getLoggedInUsername(), user.firstName + " " + user.lastName);
+    }
+
+    @But("the email is already in use")
+    public void fillInAlreadyUsedEmail() {
+        registrationPage.getRegistrationForm().typeEmail("prueba@prueba.com");
+    }
+
+    @Then("an email validation error message is displayed")
+    public void shouldSeeEmailErrorMessage() {
+        Assert.assertEquals(ALREADY_USED_EMAIL_ERROR,
+                registrationPage.getRegistrationForm().getErrorMessageText());
+    }
+
+    @And("the registration is not successful")
+    public void stillInRegistrationPage() {
+        Assert.assertTrue(registrationPage.getRegistrationForm().isDisplayed());
     }
 }
