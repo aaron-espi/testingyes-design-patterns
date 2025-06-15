@@ -4,18 +4,23 @@ Feature: User Registration
     I want to register with valid information  
     So that I can access my personal account
 
-  Scenario: Successful registration with valid details
+  Background:
     Given the user is on the registration page
-    When the user fills in all required fields with valid data  
+
+  Scenario: Successful registration with valid details
+    When the user fills in the form with the following data
+      | firstName | lastName | password  | birthday   |
+      | John      | Doe      | 1234pass  | 12/12/1999 |
+    And uses a unique email address
     And submits the registration form  
-    Then the user should be redirected to the main page  
-    And see their name displayed in the top bar
+    Then the user is redirected to the main page  
+    And they should see their name displayed in the top bar
 
   Scenario: Registration attempt with an already registered email
-    Given the user is on the registration page
-    When the user fills in all required fields with valid data
-    But the email is already in use
+    When the user fills in the form with the following data
+      | firstName | lastName | password  | birthday   |
+      | John      | Doe      | 1234pass  | 12/12/1999 |
+    And uses an already registered email address
     And submits the registration form  
-    Then an email validation error message is displayed
-    And the registration is not successful
-    
+    Then the user is informed that the email is already in use
+    And the registration should not be completed
