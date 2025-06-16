@@ -19,3 +19,9 @@ Feature: Product Search
       | Sweater |
       | Mug     |
       | Cushion |
+
+  Scenario: Search returns no results
+    When the user enters "xyznotfound" into the search bar
+    And the user clicks the search button
+    Then the search results page is displayed
+    Then the user sees a message indicating no products were found

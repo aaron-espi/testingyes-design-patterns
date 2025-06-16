@@ -30,7 +30,8 @@ public class LoginForm extends AbstractComponent {
 
     @Override
     public boolean isDisplayed() {
-        return this.wait.until((d) -> this.email.isDisplayed());
+        return this.wait
+                .until((d) -> this.email.isDisplayed() && this.password.isDisplayed() && this.login.isDisplayed());
     }
 
 }
