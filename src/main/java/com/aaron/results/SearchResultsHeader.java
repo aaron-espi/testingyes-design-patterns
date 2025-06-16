@@ -1,5 +1,8 @@
 package com.aaron.results;
 
+import static com.aaron.results.ResultsLocators.BREADCRUMB_NAVIGATION;
+import static com.aaron.results.ResultsLocators.RESULTS_PAGE_TITLE_TEXT;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,10 +11,10 @@ import com.aaron.common.AbstractComponent;
 
 public class SearchResultsHeader extends AbstractComponent {
 
-    @FindBy(css = "nav.breadcrumb")
+    @FindBy(css = BREADCRUMB_NAVIGATION)
     private WebElement breadcrumbNav;
 
-    @FindBy(id = "js-product-list-header")
+    @FindBy(id = RESULTS_PAGE_TITLE_TEXT)
     private WebElement title;
 
     public SearchResultsHeader(WebDriver driver) {
