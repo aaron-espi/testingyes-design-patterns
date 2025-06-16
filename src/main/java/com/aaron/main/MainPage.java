@@ -3,6 +3,7 @@ package com.aaron.main;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aaron.common.ProductGrid;
 import com.aaron.common.SearchWidget;
 import com.aaron.common.TopBar;
 

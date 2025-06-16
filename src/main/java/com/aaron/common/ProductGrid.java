@@ -21,17 +21,13 @@ public class ProductGrid extends AbstractComponent {
     }
 
     public boolean containsProductsMatchingQuery(String query) {
-        for (WebElement product : this.productItems) {
-            String productName = product.findElement(By.cssSelector("h2.product-title")).getText().toLowerCase();
-            if (productName.contains(query.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
+        return this.productItems.stream()
+                .map(product -> product.findElement(By.cssSelector("h2.product-title")).getText().toLowerCase())
+                .anyMatch(name -> name.contains(query.toLowerCase()));
     }
 
     @Override
     public boolean isDisplayed() {
-        return this.wait.until((d) -> this.productItems.get(0).isDisplayed());
+        return this.wait.until((d) -> !this.productItems.isEmpty() && this.productItems.get(0).isDisplayed());
     }
 }

@@ -16,6 +16,15 @@ public class SearchWidget extends AbstractComponent {
         super(driver);
     }
 
+    public void typeSearchQuery(String query) {
+        searchBar.clear();
+        searchBar.sendKeys(query);
+    }
+
+    public void clickSearchButton() {
+        searchButton.click();
+    }
+
     @Override
     public boolean isDisplayed() {
         return this.wait.until((d) -> searchBar.isDisplayed());
