@@ -25,7 +25,7 @@ public class SearchSteps {
 
         mainPage.goTo();
 
-        Assert.assertTrue(mainPage.getTopBar().isDisplayed());
+        Assert.assertTrue(mainPage.getProductGrid().isDisplayed());
     }
 
     @When("the user enters {string} into the search bar")
