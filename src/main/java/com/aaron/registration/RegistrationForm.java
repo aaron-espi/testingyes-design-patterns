@@ -1,5 +1,18 @@
 package com.aaron.registration;
 
+import static com.aaron.common.CommonLocators.EMAIL_INPUT;
+import static com.aaron.common.CommonLocators.PASSWORD_INPUT;
+import static com.aaron.registration.RegistrationLocators.BIRTHDAY_INPUT;
+import static com.aaron.registration.RegistrationLocators.ERROR_MESSAGE;
+import static com.aaron.registration.RegistrationLocators.FIRSTNAME_INPUT;
+import static com.aaron.registration.RegistrationLocators.LASTNAME_INPUT;
+import static com.aaron.registration.RegistrationLocators.NEWSLETTER_CHECK;
+import static com.aaron.registration.RegistrationLocators.RECEIVE_OFFERS_CHECK;
+import static com.aaron.registration.RegistrationLocators.SAVE_BUTTON;
+import static com.aaron.registration.RegistrationLocators.SOCIAL_TITLE_MRS_RADIO;
+import static com.aaron.registration.RegistrationLocators.SOCIAL_TITLE_MR_RADIO;
+import static com.aaron.registration.RegistrationLocators.TERMS_AND_PRIVACY_CHECK;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,40 +21,40 @@ import com.aaron.common.AbstractComponent;
 
 public class RegistrationForm extends AbstractComponent {
 
-    @FindBy(css = "input[name='id_gender'][value='1']")
+    @FindBy(css = SOCIAL_TITLE_MR_RADIO)
     private WebElement socialTitleMr;
 
-    @FindBy(css = "input[name='id_gender'][value='2']")
+    @FindBy(css = SOCIAL_TITLE_MRS_RADIO)
     private WebElement socialTitleMrs;
 
-    @FindBy(name = "firstname")
+    @FindBy(name = FIRSTNAME_INPUT)
     private WebElement firstName;
 
-    @FindBy(name = "lastname")
+    @FindBy(name = LASTNAME_INPUT)
     private WebElement lastName;
 
-    @FindBy(name = "email")
+    @FindBy(name = EMAIL_INPUT)
     private WebElement email;
 
-    @FindBy(name = "password")
+    @FindBy(name = PASSWORD_INPUT)
     private WebElement password;
 
-    @FindBy(name = "birthday")
+    @FindBy(name = BIRTHDAY_INPUT)
     private WebElement birthday;
 
-    @FindBy(name = "optin")
+    @FindBy(name = RECEIVE_OFFERS_CHECK)
     private WebElement receiveOffers;
 
-    @FindBy(name = "newsletter")
+    @FindBy(name = NEWSLETTER_CHECK)
     private WebElement newsletterSignup;
 
-    @FindBy(name = "psgdpr")
+    @FindBy(name = TERMS_AND_PRIVACY_CHECK)
     private WebElement termsAndPrivacy;
 
-    @FindBy(xpath = "//button[@data-link-action='save-customer']")
+    @FindBy(xpath = SAVE_BUTTON)
     private WebElement save;
 
-    @FindBy(css = "div.help-block ul li.alert.alert-danger")
+    @FindBy(css = ERROR_MESSAGE)
     private WebElement errorMessage;
 
     public RegistrationForm(final WebDriver driver) {
