@@ -1,6 +1,10 @@
 package com.aaron.steps;
 
 import static com.aaron.constants.RegistrationConstants.ALREADY_USED_EMAIL_ERROR;
+import static com.aaron.constants.SearchConstants.BIRTHDAY_FIELD;
+import static com.aaron.constants.SearchConstants.FIRST_NAME_FIELD;
+import static com.aaron.constants.SearchConstants.LAST_NAME_FIELD;
+import static com.aaron.constants.SearchConstants.PASSWORD_FIELD;
 
 import java.util.List;
 import java.util.Map;
@@ -52,10 +56,10 @@ public class RegistrationSteps {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
         Map<String, String> row = data.get(0);
 
-        String firstName = row.get("firstName");
-        String lastName = row.get("lastName");
-        String password = row.get("password");
-        String birthday = row.get("birthday");
+        String firstName = row.get(FIRST_NAME_FIELD);
+        String lastName = row.get(LAST_NAME_FIELD);
+        String password = row.get(PASSWORD_FIELD);
+        String birthday = row.get(BIRTHDAY_FIELD);
 
         registrationPage.getRegistrationForm().checkSocialTitleMr();
         registrationPage.getRegistrationForm().typeFirstName(firstName);

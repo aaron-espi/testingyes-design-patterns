@@ -1,8 +1,8 @@
 package com.aaron.results;
 
+import static com.aaron.results.ResultsLocators.NO_RESULTS_SEARCH_INPUT;
 import static com.aaron.results.ResultsLocators.NO_RESULTS_SUGGESTION_TEXT;
 import static com.aaron.results.ResultsLocators.NO_RESULTS_TITLE_TEXT;
-import static com.aaron.results.ResultsLocators.NO_RESULTS_SEARCH_INPUT;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

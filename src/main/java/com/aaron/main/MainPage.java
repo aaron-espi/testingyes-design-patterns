@@ -1,5 +1,7 @@
 package com.aaron.main;
 
+import static com.aaron.config.EnvironmentConfig.BASE_URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,7 +24,7 @@ public class MainPage {
     }
 
     public void goTo() {
-        this.driver.get("http://www.testingyes.com/onlineshop/");
+        this.driver.get(BASE_URL);
     }
 
     public TopBar getTopBar() {
