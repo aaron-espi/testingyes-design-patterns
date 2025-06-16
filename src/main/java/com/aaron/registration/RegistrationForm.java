@@ -100,7 +100,7 @@ public class RegistrationForm extends AbstractComponent {
 
     @Override
     public boolean isDisplayed() {
-        return this.wait.until((d) -> save.isDisplayed());
+        return this.wait.until((d) -> firstName.isDisplayed() && save.isDisplayed() && termsAndPrivacy.isDisplayed());
     }
 
 }
