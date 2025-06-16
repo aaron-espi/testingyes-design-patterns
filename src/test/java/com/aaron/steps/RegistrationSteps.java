@@ -38,7 +38,7 @@ public class RegistrationSteps {
         registrationPage = new RegistrationPage(driver);
 
         mainPage.goTo();
-        Assert.assertTrue(mainPage.getTopBar().isDisplayed());
+        Assert.assertTrue(mainPage.getProductGrid().isDisplayed());
 
         mainPage.getTopBar().goToLogin();
         Assert.assertTrue(loginPage.getLoginForm().isDisplayed());
@@ -81,12 +81,11 @@ public class RegistrationSteps {
 
     @Then("the user is redirected to the main page")
     public void shouldBeRedirectedToMainPage() {
-        Assert.assertTrue(mainPage.getTopBar().isDisplayed());
+        Assert.assertTrue(mainPage.getProductGrid().isDisplayed());
     }
 
     @And("they should see their name displayed in the top bar")
     public void shouldSeeNameInTopBar() {
-        Assert.assertTrue(mainPage.getProductGrid().isDisplayed());
         Assert.assertEquals(mainPage.getTopBar().getLoggedInUsername(), user.getFirstName() + " " + user.getLastName());
     }
 
