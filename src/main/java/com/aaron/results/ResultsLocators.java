@@ -1,5 +1,11 @@
 package com.aaron.results;
 
+/**
+ * Contains CSS selectors and locators used in the results page components.
+ * <p>
+ * This utility class centralizes selectors for results-related elements and
+ * should not be instantiated.
+ */
 public final class ResultsLocators {
 
     public static final String RESULTS_PAGE_TITLE_TEXT = "js-product-list-header";
@@ -10,6 +16,9 @@ public final class ResultsLocators {
     public static final String SORT_BY_LABEL = "span.sort-by";
     public static final String SORT_BY_DROPDOWN_MENU = "div.dropdown-menu";
 
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     */
     private ResultsLocators() {
     }
 }
