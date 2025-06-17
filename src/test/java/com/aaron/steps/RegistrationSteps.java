@@ -121,7 +121,8 @@ public class RegistrationSteps {
      */
     @And("they should see their name displayed in the top bar")
     public void shouldSeeNameInTopBar() {
-        Assert.assertEquals(mainPage.getTopBar().getLoggedInUsername(), user.getFirstName() + " " + user.getLastName());
+        String expectedName = user.getFirstName() + " " + user.getLastName();
+        Assert.assertEquals(expectedName, mainPage.getTopBar().getLoggedInUsername());
     }
 
     /**
@@ -132,6 +133,7 @@ public class RegistrationSteps {
     public void fillInAlreadyUsedEmail() {
         String email = EmailFactory.alreadyUsedEmail();
         registrationPage.getRegistrationForm().typeEmail(email);
+        this.user.setEmail(email);
     }
 
     /**
