@@ -7,8 +7,10 @@ package com.aaron.login;
  * should not be instantiated.
  */
 public final class LoginLocators {
+
     /** Locator for the login button. */
     public static final String LOGIN_BUTTON = "submit-login";
+
     /** Locator for the register link. */
     public static final String REGISTER_LINK = "a[data-link-action='display-register-form']";
 
